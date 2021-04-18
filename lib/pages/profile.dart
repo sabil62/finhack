@@ -1,4 +1,4 @@
-import 'package:budget/themes/colors.dart';
+import 'package:finhack/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -82,27 +82,6 @@ class _ProfileState extends State<Profile> {
                               )
                             ],
                           )),
-                      // Center(
-                      //   child: Container(
-                      //     height: 130,
-                      //     decoration: BoxDecoration(
-                      //         border: Border.all(color: primary, width: 5.5),
-                      //         shape: BoxShape.circle,
-                      //         color: Colors.transparent),
-                      //     child: Padding(
-                      //       padding: const EdgeInsets.all(6.0),
-                      //       child: Container(
-                      //         decoration: BoxDecoration(
-                      //             image: DecorationImage(
-                      //                 image: AssetImage(
-                      //                     "assets/profile/profile.jpg"),
-                      //                 fit: BoxFit.cover),
-                      //             shape: BoxShape.circle),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
-                      // ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(19.8, 0, 0, 5),
                         child: Container(
@@ -112,7 +91,7 @@ class _ProfileState extends State<Profile> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Roman Tanica",
+                                "Sabil Shrestha",
                                 style:
                                     texter(21.2, 1.0, weight: FontWeight.w700),
                               ),

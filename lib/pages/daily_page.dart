@@ -1,6 +1,6 @@
-import 'package:budget/json/daily_json.dart';
-import 'package:budget/json/day_month.dart';
-import 'package:budget/themes/colors.dart';
+import 'package:finhack/json/daily_json.dart';
+import 'package:finhack/json/day_month.dart';
+import 'package:finhack/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 

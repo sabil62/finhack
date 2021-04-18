@@ -1,6 +1,6 @@
-import 'package:budget/json/stats_json.dart';
-import 'package:budget/themes/colors.dart';
-import 'package:budget/widgets/lineChart.dart';
+import 'package:finhack/json/stats_json.dart';
+import 'package:finhack/themes/colors.dart';
+import 'package:finhack/widgets/lineChart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 

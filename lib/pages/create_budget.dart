@@ -1,5 +1,5 @@
-import 'package:budget/json/create_budget_json.dart';
-import 'package:budget/themes/colors.dart';
+import 'package:finhack/json/create_budget_json.dart';
+import 'package:finhack/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
