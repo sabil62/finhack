@@ -127,7 +127,7 @@ class _BudgetPageState extends State<BudgetPage> {
           Column(
             children: List.generate(budgetIndicator.length, (index) {
               return Padding(
-                padding: const EdgeInsets.fromLTRB(65, 1, 65, 20),
+                padding: const EdgeInsets.fromLTRB(65, 1, 65, 26),
                 child: Container(
                   height: 150,
                   width: (size.width - 40),
@@ -135,7 +135,7 @@ class _BudgetPageState extends State<BudgetPage> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(18)),
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 18, 12, 14),
+                    padding: const EdgeInsets.fromLTRB(34, 22, 22, 22),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

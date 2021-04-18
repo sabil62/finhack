@@ -12,6 +12,7 @@ class _CreateBudgetState extends State<CreateBudget> {
   int currentContainer;
   TextEditingController budget_name = TextEditingController(text: "Shopping");
   TextEditingController budget_price = TextEditingController(text: "\$720.0");
+  TextEditingController max_budget = TextEditingController();
   bool buttonPink = false;
   @override
   Widget build(BuildContext context) {
@@ -34,14 +35,14 @@ class _CreateBudgetState extends State<CreateBudget> {
                   blurRadius: 3),
             ]),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 60, 20, 25),
+              padding: const EdgeInsets.fromLTRB(65, 60, 65, 25),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "Create Budget",
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 26,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1.05,
                         color: black),
@@ -55,20 +56,20 @@ class _CreateBudgetState extends State<CreateBudget> {
             height: 20,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 65),
             child: Container(
               alignment: AlignmentDirectional.topStart,
               child: Text(
                 "Choose Category",
                 style: TextStyle(
-                    fontSize: 16.4,
+                    fontSize: 17.4,
                     fontWeight: FontWeight.bold,
                     color: black.withOpacity(0.4)),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(4, 12, 6, 12),
+            padding: const EdgeInsets.fromLTRB(62, 12, 62, 12),
             child: Container(
               height: 200,
               child: ListView.builder(
@@ -85,7 +86,7 @@ class _CreateBudgetState extends State<CreateBudget> {
                       padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
                         height: 170,
-                        width: (size.width - 90) / 2,
+                        width: (size.width - 300) / 3,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(12),
@@ -95,27 +96,30 @@ class _CreateBudgetState extends State<CreateBudget> {
                         child: Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
-                                height: 38,
-                                width: 38,
+                                height: 92.4,
+                                width: 92.4,
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: Colors.grey.withOpacity(0.3)),
                                 child: Center(
                                   child: Image.asset(
                                     categories[index]["icon"],
-                                    height: 26,
-                                    width: 26,
+                                    height: 46,
+                                    width: 46,
                                   ),
                                 ),
+                              ),
+                              SizedBox(
+                                height: 20,
                               ),
                               Text(
                                 categories[index]["name"],
                                 style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: 21,
                                     fontWeight: FontWeight.bold,
                                     letterSpacing: 1.11,
                                     color: black),
@@ -135,7 +139,7 @@ class _CreateBudgetState extends State<CreateBudget> {
           ),
           //section budget
           Padding(
-            padding: const EdgeInsets.fromLTRB(24, 12, 5, 12),
+            padding: const EdgeInsets.fromLTRB(65, 12, 5, 12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -171,45 +175,99 @@ class _CreateBudgetState extends State<CreateBudget> {
                 ),
                 Row(
                   children: [
-                    Container(
-                      width: size.width * 0.72,
-                      child: TextField(
-                        cursorColor: black,
-                        controller: budget_price,
-                        style: styler(21.4, 1.0),
-                        decoration: InputDecoration(
-                            focusColor: Colors.green,
-                            hintText: "Enter your budget",
-                            border: InputBorder.none),
-                      ),
+                    Row(
+                      children: [
+                        Container(
+                          width: size.width * 0.32,
+                          child: TextField(
+                            cursorColor: black,
+                            controller: budget_price,
+                            style: styler(21.4, 1.0),
+                            decoration: InputDecoration(
+                                focusColor: Colors.green,
+                                hintText: "Enter your budget",
+                                border: InputBorder.none),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 22,
+                        ),
+                        Listener(
+                          onPointerDown: (PointerEvent details) {
+                            setState(() {
+                              buttonPink = true;
+                            });
+                          },
+                          onPointerUp: (PointerEvent eventer) {
+                            setState(() {
+                              buttonPink = false;
+                            });
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(9),
+                                color: buttonPink ? Colors.pink[800] : primary),
+                            child: Center(
+                                child: Icon(
+                              AntDesign.arrowright,
+                              color: Colors.white,
+                            )),
+                          ),
+                        )
+                      ],
                     ),
                     SizedBox(
-                      width: 22,
+                      width: size.width / 8,
                     ),
-                    Listener(
-                      onPointerDown: (PointerEvent details) {
-                        setState(() {
-                          buttonPink = true;
-                        });
-                      },
-                      onPointerUp: (PointerEvent eventer) {
-                        setState(() {
-                          buttonPink = false;
-                        });
-                      },
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(9),
-                            color: buttonPink ? Colors.pink[800] : primary),
-                        child: Center(
-                            child: Icon(
-                          AntDesign.arrowright,
-                          color: Colors.white,
-                        )),
-                      ),
-                    )
+                    Row(
+                      children: [
+                        Container(
+                          width: size.width * 0.32,
+                          child: TextField(
+                            cursorColor: black,
+                            controller: max_budget,
+                            style: styler(21.4, 1.0),
+                            decoration: InputDecoration(
+                                focusColor: Colors.green,
+                                hintText: "Enter your max budget",
+                                hintStyle: TextStyle(
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 20),
+                                border: InputBorder.none),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 22,
+                        ),
+                        Listener(
+                          onPointerDown: (PointerEvent details) {
+                            setState(() {
+                              buttonPink = true;
+                            });
+                          },
+                          onPointerUp: (PointerEvent eventer) {
+                            setState(() {
+                              buttonPink = false;
+                            });
+                          },
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(9),
+                                color: buttonPink ? Colors.pink[800] : primary),
+                            child: Center(
+                                child: Icon(
+                              AntDesign.arrowright,
+                              color: Colors.white,
+                            )),
+                          ),
+                        )
+                      ],
+                    ),
                   ],
                 )
               ],

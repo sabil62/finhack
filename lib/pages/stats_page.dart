@@ -168,14 +168,14 @@ class _StatsAppState extends State<StatsApp> {
                       borderRadius: BorderRadius.circular(14),
                       color: Colors.white),
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 22, 10, 20),
+                    padding: const EdgeInsets.fromLTRB(40, 22, 10, 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          height: 40,
-                          width: 40,
+                          height: 45,
+                          width: 45,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: expenses[index]["middle"] == "Income"
@@ -193,7 +193,7 @@ class _StatsAppState extends State<StatsApp> {
                               Text(
                                 expenses[index]["middle"],
                                 style: TextStyle(
-                                    fontSize: 13,
+                                    fontSize: 14.6,
                                     fontWeight: FontWeight.w500,
                                     color: Colors.black.withOpacity(0.5)),
                               ),
@@ -202,7 +202,7 @@ class _StatsAppState extends State<StatsApp> {
                               ),
                               Text(expenses[index]["money"],
                                   style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 24,
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold))
                             ],

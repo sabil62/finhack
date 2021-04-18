@@ -1,3 +1,4 @@
+import 'package:finhack/json/bank.dart';
 import 'package:finhack/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -112,62 +113,78 @@ class _ProfileState extends State<Profile> {
                   SizedBox(
                     height: 18,
                   ),
-                  Container(
-                    height: 120,
-                    decoration: BoxDecoration(
-                        color: primary,
-                        borderRadius: BorderRadius.circular(16)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Row(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
+                    child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Neon Bank Country",
-                                  style: TextStyle(
-                                      fontSize: 11,
-                                      color: Colors.grey[200], //jpt jugad
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                SizedBox(
-                                  height: 7.2,
-                                ),
-                                Text(
-                                  "\$7348.90",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.grey[100], //jpt jugad
-                                      fontWeight: FontWeight.w700,
-                                      letterSpacing: 0.4),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            height: 49.6,
+                        children: List.generate(
+                          2, //or bank.length
+                          (index) => Container(
+                            height: 120,
+                            width: (size.width - 200) / 2,
                             decoration: BoxDecoration(
                                 color: primary,
-                                border: Border.all(
-                                    width: 1, color: Colors.grey[100]),
-                                borderRadius: BorderRadius.circular(12)),
+                                borderRadius: BorderRadius.circular(16)),
                             child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 18),
-                              child: Center(
-                                  child: Text("Update",
-                                      style: texter(17.0, 0.9,
-                                          weight: FontWeight.w500))),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 12, horizontal: 45),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          bank[index]["name"],
+                                          style: TextStyle(
+                                              fontSize: 11,
+                                              color:
+                                                  Colors.grey[200], //jpt jugad
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        SizedBox(
+                                          height: 7.2,
+                                        ),
+                                        Text(
+                                          bank[index]["amount"],
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              color:
+                                                  Colors.grey[100], //jpt jugad
+                                              fontWeight: FontWeight.w700,
+                                              letterSpacing: 0.4),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 49.6,
+                                    decoration: BoxDecoration(
+                                        color: primary,
+                                        border: Border.all(
+                                            width: 1, color: Colors.grey[100]),
+                                        borderRadius:
+                                            BorderRadius.circular(12)),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 18),
+                                      child: Center(
+                                          child: Text("Update",
+                                              style: texter(17.0, 0.9,
+                                                  weight: FontWeight.w500))),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
-                          )
-                        ],
-                      ),
-                    ),
+                          ),
+                        )),
                   )
                 ],
               ),
