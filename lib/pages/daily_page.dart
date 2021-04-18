@@ -34,7 +34,7 @@ class _DailyPageState extends State<DailyPage> {
                       color: Colors.black.withOpacity(0.02)),
                 ]),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 60, 20, 25),
+              padding: const EdgeInsets.fromLTRB(60, 60, 60, 25),
               child: Column(
                 children: [
                   Row(
@@ -43,7 +43,7 @@ class _DailyPageState extends State<DailyPage> {
                       Text(
                         "Daily Transaction",
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: black),
                       ),
@@ -53,53 +53,57 @@ class _DailyPageState extends State<DailyPage> {
                   SizedBox(
                     height: 25,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(
-                      days.length,
-                      (index) {
-                        return GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              activeCalendar = index;
-                            });
-                          },
-                          child: Container(
-                            width: (size.width - 40) / 7,
-                            child: Column(
-                              children: [
-                                Text(
-                                  days[index]["label"],
-                                  style: TextStyle(
-                                      color: Colors.black.withOpacity(0.35)),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Container(
-                                  height: 30,
-                                  width: 30,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: index == activeCalendar
-                                          ? primary
-                                          : Colors.transparent,
-                                      border: Border.all(color: primary)),
-                                  child: Center(
-                                    child: Text(
-                                      days[index]["day"],
-                                      style: TextStyle(
-                                          color: index == activeCalendar
-                                              ? Colors.grey[100]
-                                              : Colors.black.withOpacity(0.35)),
-                                    ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 100),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: List.generate(
+                        days.length,
+                        (index) {
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                activeCalendar = index;
+                              });
+                            },
+                            child: Container(
+                              width: (size.width - 350) / 7,
+                              child: Column(
+                                children: [
+                                  Text(
+                                    days[index]["label"],
+                                    style: TextStyle(
+                                        color: Colors.black.withOpacity(0.35)),
                                   ),
-                                )
-                              ],
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Container(
+                                    height: 40,
+                                    width: 40,
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: index == activeCalendar
+                                            ? primary
+                                            : Colors.transparent,
+                                        border: Border.all(color: primary)),
+                                    child: Center(
+                                      child: Text(
+                                        days[index]["day"],
+                                        style: TextStyle(
+                                            color: index == activeCalendar
+                                                ? Colors.grey[100]
+                                                : Colors.black
+                                                    .withOpacity(0.35)),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
                   )
                 ],
@@ -107,101 +111,104 @@ class _DailyPageState extends State<DailyPage> {
             ),
           ),
           SizedBox(
-            height: 13,
+            height: 23,
           ),
-          Column(
-            children: List.generate(daily.length, (index) {
-              return Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 22,
-                    ),
-                    child: Container(
-                      child: Row(
-                        children: [
-                          Container(
-                            height: 70,
-                            width: (size.width - 50) * 0.7,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: 50,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: grey.withOpacity(0.1)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
-                                    child: Image.asset(
-                                      daily[index]["icon"],
-                                      height: 30,
-                                      width: 30,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 0),
+            child: Column(
+              children: List.generate(daily.length, (index) {
+                return Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 62,
+                      ),
+                      child: Container(
+                        child: Row(
+                          children: [
+                            Container(
+                              height: 70,
+                              width: (size.width - 210) * 0.7,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: grey.withOpacity(0.1)),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Image.asset(
+                                        daily[index]["icon"],
+                                        height: 30,
+                                        width: 30,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Container(
-                                  width: (size.width - 50) * 0.5,
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 24),
-                                        child: Text(
-                                          daily[index]["name"],
-                                          style: TextStyle(
-                                              fontSize: 19,
-                                              fontWeight: FontWeight.w700,
-                                              color: black.withOpacity(0.7)),
+                                  Container(
+                                    width: (size.width - 210) * 0.5,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 24),
+                                          child: Text(
+                                            daily[index]["name"],
+                                            style: TextStyle(
+                                                fontSize: 19,
+                                                fontWeight: FontWeight.w700,
+                                                color: black.withOpacity(0.7)),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 24),
-                                        child: Text(
-                                          daily[index]["date"],
-                                          style: TextStyle(
-                                              color: Colors.grey[400]),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            width: (size.width - 50) * 0.3,
-                            child: Align(
-                              alignment: Alignment.topRight,
-                              child: Text(
-                                daily[index]["price"],
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: green,
-                                    fontWeight: FontWeight.w700),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 24),
+                                          child: Text(
+                                            daily[index]["date"],
+                                            style: TextStyle(
+                                                color: Colors.grey[400]),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
-                          )
-                        ],
+                            Container(
+                              width: (size.width - 150) * 0.3,
+                              child: Align(
+                                alignment: Alignment.topRight,
+                                child: Text(
+                                  daily[index]["price"],
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: green,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 36),
-                    child: Divider(
-                      color: grey.withOpacity(0.4),
-                      thickness: 0.6,
-                    ),
-                  )
-                ],
-              );
-            }),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 66),
+                      child: Divider(
+                        color: grey.withOpacity(0.4),
+                        thickness: 0.6,
+                      ),
+                    )
+                  ],
+                );
+              }),
+            ),
           ),
         ],
       ),
