@@ -29,7 +29,7 @@ class _LineChartOursState extends State<LineChartOurs> {
             ),
             child: Padding(
               padding: const EdgeInsets.only(
-                  right: 18.0, left: 12.0, top: 24, bottom: 10),
+                  right: 18.0, left: 12.0, top: 14, bottom: 10),
               child: LineChart(
                 showAvg ? avgData() : mainData(),
               ),
@@ -38,7 +38,7 @@ class _LineChartOursState extends State<LineChartOurs> {
         ),
         SizedBox(
           width: 60,
-          height: 34,
+          height: 24,
           child: FlatButton(
             onPressed: () {
               setState(() {

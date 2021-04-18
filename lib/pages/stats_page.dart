@@ -119,13 +119,13 @@ class _StatsAppState extends State<StatsApp> {
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             child: Container(
               width: double.infinity,
-              height: 260,
+              height: 320,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16), color: Colors.white),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       "Net Balance",
@@ -133,7 +133,7 @@ class _StatsAppState extends State<StatsApp> {
                           fontSize: 14, color: Colors.black.withOpacity(0.4)),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 2,
                     ),
                     Text(
                       "\$2560.90",
@@ -142,7 +142,10 @@ class _StatsAppState extends State<StatsApp> {
                           fontWeight: FontWeight.w800,
                           fontSize: 24),
                     ),
-                    LineChartOurs()
+                    Container(
+                      height: 250,
+                      child: LineChartOurs(),
+                    )
                   ],
                 ),
               ),

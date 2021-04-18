@@ -1,5 +1,12 @@
-import 'package:finhack/colors/colors.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:finhack/pages/budget_page.dart';
+import 'package:finhack/pages/create_budget.dart';
+import 'package:finhack/pages/daily_page.dart';
+import 'package:finhack/pages/profile.dart';
+import 'package:finhack/pages/stats_page.dart';
+import 'package:finhack/themes/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 class RootApp extends StatefulWidget {
   @override
@@ -11,23 +18,7 @@ class _RootAppState extends State<RootApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          indexWidget(),
-          Divider(
-            height: 30,
-            thickness: 2,
-          ),
-          ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  indexstack = indexstack < 4 ? indexstack + 1 : 0;
-                });
-              },
-              child: Text(indexstack.toString()))
-        ],
-      ),
+      body: indexWidget(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
@@ -38,6 +29,33 @@ class _RootAppState extends State<RootApp> {
         backgroundColor: primary,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: getAnimatedNavigation(),
+    );
+  }
+
+  Widget getAnimatedNavigation() {
+    List<IconData> iconList = [
+      Ionicons.md_calendar,
+      Ionicons.md_stats,
+      Ionicons.md_wallet,
+      Ionicons.ios_person
+    ];
+    return AnimatedBottomNavigationBar(
+      icons: iconList,
+      activeIndex: indexstack,
+      gapLocation: GapLocation.center,
+      notchSmoothness: NotchSmoothness.smoothEdge,
+      leftCornerRadius: 16,
+      rightCornerRadius: 16,
+      splashColor: secondary,
+      activeColor: primary,
+      inactiveColor: Colors.black.withOpacity(0.5),
+      onTap: (index) {
+        setState(() {
+          indexstack = index;
+        });
+        ;
+      },
     );
   }
 
@@ -45,21 +63,11 @@ class _RootAppState extends State<RootApp> {
     return IndexedStack(
       index: indexstack,
       children: [
-        Container(
-          child: Text('0 stack'),
-        ),
-        Container(
-          child: Text('1 stack'),
-        ),
-        Container(
-          child: Text('2 stack'),
-        ),
-        Container(
-          child: Text('3 stack'),
-        ),
-        Container(
-          child: Text('4 stack'),
-        ),
+        DailyPage(),
+        StatsApp(),
+        BudgetPage(),
+        Profile(),
+        CreateBudget(),
       ],
     );
   }
