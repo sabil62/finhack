@@ -1,3 +1,4 @@
+import 'package:finhack/colors/colors.dart';
 import 'package:flutter/material.dart';
 
 class RootApp extends StatefulWidget {
@@ -13,26 +14,7 @@ class _RootAppState extends State<RootApp> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          IndexedStack(
-            index: indexstack,
-            children: [
-              Container(
-                child: Text('0 stack'),
-              ),
-              Container(
-                child: Text('1 stack'),
-              ),
-              Container(
-                child: Text('2 stack'),
-              ),
-              Container(
-                child: Text('3 stack'),
-              ),
-              Container(
-                child: Text('4 stack'),
-              ),
-            ],
-          ),
+          indexWidget(),
           Divider(
             height: 30,
             thickness: 2,
@@ -46,6 +28,39 @@ class _RootAppState extends State<RootApp> {
               child: Text(indexstack.toString()))
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            indexstack = 4;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: primary,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+
+  Widget indexWidget() {
+    return IndexedStack(
+      index: indexstack,
+      children: [
+        Container(
+          child: Text('0 stack'),
+        ),
+        Container(
+          child: Text('1 stack'),
+        ),
+        Container(
+          child: Text('2 stack'),
+        ),
+        Container(
+          child: Text('3 stack'),
+        ),
+        Container(
+          child: Text('4 stack'),
+        ),
+      ],
     );
   }
 }
