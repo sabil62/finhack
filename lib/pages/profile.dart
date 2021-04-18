@@ -32,7 +32,7 @@ class _ProfileState extends State<Profile> {
               BoxShadow(blurRadius: 10, color: Colors.black.withOpacity(0.02))
             ]),
             child: Padding(
-              padding: EdgeInsets.fromLTRB(20, 62, 20, 25),
+              padding: EdgeInsets.fromLTRB(65, 62, 65, 25),
               child: Column(
                 children: [
                   Row(
@@ -40,25 +40,26 @@ class _ProfileState extends State<Profile> {
                     children: [
                       Text(
                         "Profile",
-                        style: texter(22.0, 1.0, weight: FontWeight.w700),
+                        style: texter(24.0, 1.0, weight: FontWeight.w700),
                       ),
                       Icon(AntDesign.setting)
                     ],
                   ),
                   SizedBox(
-                    height: 22,
+                    height: 26,
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                          width: (size.width - 44) * 0.4,
+                          width: (size.width - 44) * 0.15,
+                          height: 200,
                           child: Stack(
                             children: [
                               RotatedBox(
                                 quarterTurns: -2,
                                 child: CircularPercentIndicator(
-                                  radius: 120.0,
+                                  radius: 162.0,
                                   lineWidth: 6.0,
                                   percent: 0.53,
                                   center: new Text("100%"),
@@ -70,8 +71,8 @@ class _ProfileState extends State<Profile> {
                                 top: 11,
                                 left: 10.3,
                                 child: Container(
-                                  height: 100,
-                                  width: 100,
+                                  height: 140,
+                                  width: 140,
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       image: DecorationImage(
@@ -93,7 +94,7 @@ class _ProfileState extends State<Profile> {
                               Text(
                                 "Sabil Shrestha",
                                 style:
-                                    texter(21.2, 1.0, weight: FontWeight.w700),
+                                    texter(24.2, 1.0, weight: FontWeight.w700),
                               ),
                               SizedBox(
                                 height: 3,
@@ -174,7 +175,7 @@ class _ProfileState extends State<Profile> {
           ),
           SizedBox(height: 32),
           Padding(
-            padding: const EdgeInsets.all(18.0),
+            padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 65),
             child: Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
